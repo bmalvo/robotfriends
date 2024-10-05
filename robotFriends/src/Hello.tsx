@@ -1,13 +1,18 @@
 import { Component } from "react";
 import './Hello.css'
 
-export class Hello extends Component {
+type Greetings = {
+    
+    greetings: string;
+}
+
+export class Hello extends Component<Greetings> {
 
     render() {
         
         return <>
-            <h1>Hello world!</h1>
-            <p>Welcome to React</p>
+            <h1 className="dim">Hello world!</h1>
+            <p>Welcome to React {this.props.greetings}</p>
         </>
     }
 }
