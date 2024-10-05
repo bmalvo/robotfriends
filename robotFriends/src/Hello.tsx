@@ -1,4 +1,3 @@
-import { Component } from "react";
 import './Hello.css'
 
 type Greetings = {
@@ -6,13 +5,10 @@ type Greetings = {
     greetings: string;
 }
 
-export class Hello extends Component<Greetings> {
-
-    render() {
+export const Hello = (props: Greetings) => { 
         
         return <>
             <h1 className="dim">Hello world!</h1>
-            <p>Welcome to React {this.props.greetings}</p>
+            <p>Welcome to React {props.greetings}</p>
         </>
     }
-}
