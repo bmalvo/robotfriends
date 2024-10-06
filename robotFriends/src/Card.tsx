@@ -1,11 +1,6 @@
-type Robots = {
-    
-    id: number;
-    name: string;
-    email: string;
-}
+import { Robot } from "./types"
 
-export const Card = ({ id, name, email}: Robots) => {
+export const Card = ({ id, name, email}: Robot) => {
 
     return <>
         <div className=" tc bg-light-green dib br3 pa3 ma2 grow bw2 shadow-5">
