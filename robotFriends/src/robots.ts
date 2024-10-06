@@ -1,4 +1,6 @@
-export const robots = [
+import { Robot} from "./types";
+
+export const robots: Robot[] = [
   {
     id: 1,
     name: 'Leanne Graham',
