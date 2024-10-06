@@ -2,7 +2,8 @@ import { Component } from "react"
 import { CardArray } from "./CardArray"
 import { robots } from "./robots"
 import { SearchBox } from "./SearchBox"
-import { Robot} from "./types"
+import { Robot } from "./types"
+import './App.css'
 
 interface AppState  {
 
@@ -34,7 +35,7 @@ export class App extends Component<object, AppState> {
 
         return <>
         <div className="tc">
-        <h1>RoboFriends</h1>
+        <h1 className="f2">RoboFriends</h1>
         <SearchBox searchChange={ this.onSearchChange} />
         <CardArray robots={filteredRobots} filter={{
                     id: 0,
