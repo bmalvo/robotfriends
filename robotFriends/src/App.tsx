@@ -18,9 +18,15 @@ export class App extends Component<object, AppState> {
         super(props)
         this.state = {
 
-          robots: robots,
+          robots: [],
           searchField: ''
         }
+    }
+
+    componentDidMount(): void {
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then(response => response.json())
+            .then(users => this.setState({ robots: users }));
     }
 
     onSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
