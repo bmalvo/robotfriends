@@ -1,4 +1,4 @@
-import { Robot } from "./types"
+import { Robot } from "../types"
 
 export const Card = ({ id, name, email}: Robot) => {
 

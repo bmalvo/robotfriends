@@ -1,5 +1,5 @@
 import { Card } from "./Card"
-import { RobotsArray } from "./types"
+import { RobotsArray } from "../types"
 
 export const CardArray = ({ robots }: RobotsArray) => {
 

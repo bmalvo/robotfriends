@@ -1,10 +1,10 @@
 import { Component } from "react"
-import { CardArray } from "./CardArray"
+import { CardArray } from "../components/CardArray"
 // import { robots } from "./robots"
-import { SearchBox } from "./SearchBox"
-import { Robot } from "./types"
+import { SearchBox } from "../components/SearchBox"
+import { Robot } from "../types"
 import './App.css'
-import { Scroll } from "./Scroll"
+import { Scroll } from "../components/Scroll"
 
 interface AppState  {
 
@@ -37,22 +37,23 @@ export class App extends Component<object, AppState> {
 
     render() {
 
-        const filteredRobots = this.state.robots.filter((robot: Robot) =>
-            robot.name.toLowerCase().includes(this.state.searchField.toLowerCase()))
+        const { robots, searchField } = this.state;
 
-        return <>
-        <div className="tc">
-        <h1 className="f2">RoboFriends</h1>
-        <SearchBox searchChange={this.onSearchChange} />
-        <Scroll>
-          <CardArray robots={filteredRobots} filter={{
-            id: 0,
-            name: "",
-            username: undefined,
-            email: ""
-        }} />
+        const filteredRobots = robots.filter((robot: Robot) =>
+            robot.name.toLowerCase().includes(searchField.toLowerCase()));
+
+        return !robots ? <h1>Loading...</h1> :
+          <div className="tc">
+          <h1 className="f2">RoboFriends</h1>
+          <SearchBox searchChange={this.onSearchChange} />
+          <Scroll>
+            <CardArray robots={filteredRobots} filter={{
+              id: 0,
+              name: "",
+              username: undefined,
+              email: ""
+            }} />
         </Scroll>
         </div>
-    </>
     }
 }
