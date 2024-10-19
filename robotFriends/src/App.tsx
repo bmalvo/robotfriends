@@ -1,9 +1,10 @@
 import { Component } from "react"
 import { CardArray } from "./CardArray"
-import { robots } from "./robots"
+// import { robots } from "./robots"
 import { SearchBox } from "./SearchBox"
 import { Robot } from "./types"
 import './App.css'
+import { Scroll } from "./Scroll"
 
 interface AppState  {
 
@@ -42,13 +43,15 @@ export class App extends Component<object, AppState> {
         return <>
         <div className="tc">
         <h1 className="f2">RoboFriends</h1>
-        <SearchBox searchChange={ this.onSearchChange} />
-        <CardArray robots={filteredRobots} filter={{
-                    id: 0,
-                    name: "",
-                    username: undefined,
-                    email: ""
-                }} />
+        <SearchBox searchChange={this.onSearchChange} />
+        <Scroll>
+          <CardArray robots={filteredRobots} filter={{
+            id: 0,
+            name: "",
+            username: undefined,
+            email: ""
+        }} />
+        </Scroll>
         </div>
     </>
     }
