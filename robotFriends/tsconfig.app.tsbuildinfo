@@ -1,0 +1,1 @@
+{"root":["./src/main.tsx","./src/robots.ts","./src/vite-env.d.ts","./src/components/card.tsx","./src/components/cardarray.tsx","./src/components/scroll.tsx","./src/components/searchbox.tsx","./src/containers/app.tsx","./src/types/index.ts"],"version":"5.6.2"}
