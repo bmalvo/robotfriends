@@ -5,6 +5,7 @@ import { SearchBox } from "../components/SearchBox"
 import { Robot } from "../types"
 import './App.css'
 import { Scroll } from "../components/Scroll"
+import { ErrorBoundry } from "../components/ErrorBoundry"
 
 interface AppState  {
 
@@ -47,12 +48,14 @@ export class App extends Component<object, AppState> {
           <h1 className="f2">RoboFriends</h1>
           <SearchBox searchChange={this.onSearchChange} />
           <Scroll>
-            <CardArray robots={filteredRobots} filter={{
-              id: 0,
-              name: "",
-              username: undefined,
-              email: ""
-            }} />
+            <ErrorBoundry>
+              <CardArray robots={filteredRobots} filter={{
+                  id: 0,
+                  name: "",
+                  username: undefined,
+                  email: ""
+              }} />
+            </ErrorBoundry>          
         </Scroll>
         </div>
     }
