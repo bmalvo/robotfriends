@@ -4,7 +4,7 @@ import { RobotsArray } from "../types"
 export const CardArray = ({ robots }: RobotsArray) => {
 
     return <>
-        {robots.map(robot => 
+        {robots.map(robot =>
             <Card
                 key={robot.id}
                 id={robot.id}
@@ -12,4 +12,4 @@ export const CardArray = ({ robots }: RobotsArray) => {
                 email={robot.email} />
         )}
     </>
-}
+};
