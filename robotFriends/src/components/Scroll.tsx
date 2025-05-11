@@ -2,7 +2,7 @@ import { ReactNode } from "react"
 
 interface ScrollProps {
     children: ReactNode; 
-}
+};
 
 export const Scroll: React.FC<ScrollProps> = (props) => {
 
@@ -11,7 +11,7 @@ export const Scroll: React.FC<ScrollProps> = (props) => {
             overflowY: 'scroll',
             height: '470px'
         }}>
-            {props.children}    
+            {props.children}
         </div>
     </>
-} 
+};
