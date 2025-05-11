@@ -1,34 +1,30 @@
-import { Component, ErrorInfo, ReactNode } from "react";
-
-interface ErrorBoundaryState {
-    hasError: boolean;
-}
-
+import { ReactNode, useEffect, useState } from "react";
+// Need improvement!!!
 interface ErrorBoundaryProps {
     children: ReactNode;
 }
 
-export class ErrorBoundry extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
+const ErrorBoundry = ({ children }: ErrorBoundaryProps) => {
 
-    constructor(props: ErrorBoundaryProps) {
+    
+    const [hasError] = useState(false);
+    const [error] = useState(null);
+    const [errorInfo] = useState(null);
 
-        super(props);
-        this.state = {
-            hasError: false
+
+    useEffect(() => {
+        if (error) {
+            console.error(error, errorInfo);
         }
-    }
+    }, [error, errorInfo]);
+    
+    if (hasError) {
 
-    componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
-        this.setState({ hasError: true })
-        console.log(error, errorInfo);
+        return <h1>Something went wrong.</h1>;
     }
+    
+    return children
+};
 
-    render() {
-        
-        if (this.state.hasError) {
-            
-            return <h1>Oooops... Something goes wrong.</h1>
-        }
-        return this.props.children
-    }
-}
+
+export { ErrorBoundry }
